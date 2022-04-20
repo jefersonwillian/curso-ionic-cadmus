@@ -1,0 +1,7 @@
+{
+  "name": "curso-ionic-cadmus",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
