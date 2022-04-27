@@ -13,6 +13,16 @@ const routes: Routes = [
           import('../home/home.module').then((m) => m.HomePageModule),
       },
       {
+        path: 'camera',
+        loadChildren: () =>
+          import('../camera/camera.module').then((m) => m.CameraPageModule),
+      },
+      {
+        path: 'maps',
+        loadChildren: () =>
+          import('../maps/maps.module').then((m) => m.MapsPageModule),
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full',
