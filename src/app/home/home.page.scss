@@ -1,7 +1,39 @@
-:host{
-    background: #fff;
+:host {
+  background: #f1f2ee;
 
-    .header-md::after {
-        display: none;
+  .header-md::after {
+    display: none;
+  }
+
+  .home {
+    background: #f1f2ee;
+    padding-top: 2rem;
+
+    &__card {
+      margin: 0 1rem 1rem;
+      border-radius: 0.25rem;
+
+      &--img {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+
+        img {
+          width: 100%;
+          height: 10rem;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          border-radius: 0.25rem;
+        }
+      }
+
+      &--title {
+        background-color: blue;
+      }
+      &--sub-title {
+        background-color: aqua;
+      }
     }
+  }
 }
