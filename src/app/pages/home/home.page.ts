@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonRefresher } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  @ViewChild('onRefreshPanel') onRefreshPanel: IonRefresher;
 
   public listHome = [
     {
@@ -513,4 +515,11 @@ export class HomePage implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  public async doRefresh(event) {
+    setTimeout(() => {
+      this.listHome.sort(() => Math.random() - 0.5);
+      this.onRefreshPanel.complete();
+   }, 3000);
+  }
 }
