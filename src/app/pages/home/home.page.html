@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-searchbar type="search"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher #onRefreshPanel slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid class="home">
+    <ion-row>
+      <ion-col size="12" *ngFor="let item of listHome">
+        <ion-card class="home__card">
+          <ion-row>
+            <ion-col size="6" class="home__card--img">
+              <img
+                style="background-image: url('{{item.urlImg}}');" />
+            </ion-col>
+            <ion-col size="6">
+              <ion-row class="ion-text-end">
+                <ion-col size="12" class="home__card--title">
+                  <ion-text>
+                    {{item.title}}
+                  </ion-text>
+
+                </ion-col>
+                <ion-col size="12" class="home__card--sub-title">
+                  <p>
+                    {{item.description}}
+                  </p>
+                </ion-col>
+                <ion-col size="12" class="home__card--button">
+                  <ion-button expand="block" shape="round">
+                    Ver Detalhes
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
