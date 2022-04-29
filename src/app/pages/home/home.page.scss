@@ -29,10 +29,26 @@
       }
 
       &--title {
-        background-color: blue;
+        margin-top: 1rem;
+        padding-right: 1rem;
+        color: #000;
+        font-size: 1.3rem;
       }
       &--sub-title {
-        background-color: aqua;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      &--button {
+        display: flex;
+        justify-content: end;
+        padding-right: 1rem;
+
+        ion-button {
+          width: 9rem;
+          font-size: 0.8rem;
+          height: 2rem;
+        }
       }
     }
   }
