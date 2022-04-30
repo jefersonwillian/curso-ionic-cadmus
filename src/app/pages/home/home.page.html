@@ -1,17 +1,17 @@
 <ion-header>
-  <ion-searchbar type="search"></ion-searchbar>
+  <ion-searchbar type="search" (click)="handleSearch($event)" (ionClear)="handleClearSeach()"></ion-searchbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-refresher #onRefreshPanel slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher #onRefreshPanel slot="fixed" (ionRefresh)="handleDoRefresh($event)">
     <ion-refresher-content pullingIcon="chevron-down-circle-outline" refreshingSpinner="circles">
     </ion-refresher-content>
   </ion-refresher>
 
   <ion-grid class="home">
     <ion-row>
-      <ion-col size="12" *ngFor="let item of listHome">
+      <ion-col size="12" *ngFor="let item of activeList">
         <ion-card class="home__card">
           <ion-row>
             <ion-col size="6" class="home__card--img">
@@ -41,6 +41,9 @@
           </ion-row>
         </ion-card>
       </ion-col>
+      <ion-infinite-scroll threshold="120px" (ionInfinite)="handleSearchMoreItems($event.target)">
+        <ion-infinite-scroll-content loadingText="Buscando..."> </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
     </ion-row>
   </ion-grid>
 </ion-content>
