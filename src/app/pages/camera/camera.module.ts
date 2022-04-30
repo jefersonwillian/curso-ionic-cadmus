@@ -15,6 +15,6 @@ import { CameraPage } from './camera.page';
     IonicModule,
     CameraPageRoutingModule
   ],
-  declarations: [CameraPage]
+  declarations: [CameraPage],
 })
 export class CameraPageModule {}

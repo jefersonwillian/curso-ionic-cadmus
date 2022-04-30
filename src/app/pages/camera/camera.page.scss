@@ -1,0 +1,27 @@
+:host {
+  .camera {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    &__container-img {
+      text-align: center;
+      img {
+        width: 10rem;
+        height: 10rem;
+        margin: 0.5rem;
+        border-radius: 0.25rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+
+    &__container-text {
+      font-size: 1.3rem;
+      color: var(--ion-color-gray);
+    }
+  }
+}
