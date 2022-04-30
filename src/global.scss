@@ -68,4 +68,11 @@ strong {
     cursor: not-allowed;
 }
 
-
+.rc-modal-lightbox {
+	--background: rgb(0 0 0 / 42%) !important;
+	.modal-wrapper {
+		border-radius: 8px !important;
+		width: 90% !important;
+		height: 80% !important;
+	}
+}

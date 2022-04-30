@@ -37,6 +37,15 @@
       &--sub-title {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+
+        p {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
       }
 
       &--button {

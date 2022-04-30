@@ -1,3 +1,18 @@
-<p>
-  modal-details works!
-</p>
+<ion-grid class="modal-details">
+  <ion-row>
+    <ion-col size="12" class="modal-details__container-img">
+      <img style="background-image: url('{{data.urlImg}}');" />
+    </ion-col>
+    <ion-col size="12" class="modal-details__container-title">
+      {{data.title}}
+    </ion-col>
+    <ion-col size="12" class="modal-details__container-description">
+      {{data.description}}
+    </ion-col>
+    <ion-col size="12" class="modal-details__container-button">
+      <ion-button (click)="closeModal()"  expand="block" fill="clear" shape="round">
+        Fechar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

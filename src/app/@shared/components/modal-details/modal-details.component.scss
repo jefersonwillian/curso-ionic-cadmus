@@ -1,0 +1,38 @@
+:host {
+  background: #f1f2ee;
+  margin-top: 10rem;
+  border-radius: 2rem 2rem 0rem 0rem;
+  color: #000;
+
+  .modal-details {
+    text-align: center;
+    &__container-img {
+      margin-bottom: 1rem;
+      border-radius: 0.25rem;
+
+      img {
+        width: 100%;
+        height: 10rem;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+
+    &__container-title {
+      margin: 1rem 0;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    &__container-description {
+      color: #9e9e9e;
+      text-align: justify;
+      padding: 0 1rem;
+    }
+
+    &__container-button {
+      position: absolute;
+      bottom: 2rem;
+    }
+  }
+}
