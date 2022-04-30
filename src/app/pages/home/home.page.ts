@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonRefresher } from '@ionic/angular';
+import { IInfiniteScrollTarget } from 'src/app/@core/interfaces/infinite-scroll-target.interface/infinite-scroll-target.interface';
+import { infiniteScrollLocal } from 'src/app/@core/utils/infinite-scroll.utils';
 
 @Component({
   selector: 'app-home',
@@ -512,14 +514,57 @@ export class HomePage implements OnInit {
     },
   ];
 
+  public activeList: Array<any> = [];
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.feedListGiven();
+  }
 
-  public async doRefresh(event) {
+  public handleSearch(event) {
+    console.log('handleSearch ~ event', event.target.value);
+    if (event.target.value) {
+      const filter = this.activeList.filter(
+        (el) => el.title.toLowerCase() === event.target.value.toLowerCase()
+      );
+
+      if (filter.length) {
+        this.activeList = [];
+        this.activeList = filter;
+      }
+    } else {
+      this.feedListGiven();
+    }
+  }
+
+  public async handleDoRefresh(event) {
     setTimeout(() => {
-      this.listHome.sort(() => Math.random() - 0.5);
+      this.activeList.sort(() => Math.random() - 10);
       this.onRefreshPanel.complete();
-   }, 3000);
+    }, 3000);
+  }
+
+  public handleClearSeach() {
+    this.feedListGiven();
+  }
+
+  public async handleSearchMoreItems(infiniteScrollTarget) {
+    setTimeout(() => {
+      this.activeList = infiniteScrollLocal(
+        this.activeList,
+        this.listHome,
+        10,
+        infiniteScrollTarget
+      );
+      infiniteScrollTarget.complete();
+    }, 5000);
+  }
+
+  private feedListGiven() {
+    this.activeList = [];
+    for (let index = 0; index <= 5; index++) {
+      this.activeList.push(this.listHome[index]);
+    }
   }
 }
