@@ -1,12 +1,12 @@
 :host {
-  background: #f1f2ee;
+  background: var(--ion-color-light);
 
   .header-md::after {
     display: none;
   }
 
   .home {
-    background: #f1f2ee;
+    background: var(--ion-color-light);
     padding-top: 2rem;
 
     &__card {
@@ -31,7 +31,7 @@
       &--title {
         margin-top: 1rem;
         padding-right: 1rem;
-        color: #000;
+        color: var(--ion-color-black);
         font-size: 1.3rem;
       }
       &--sub-title {
