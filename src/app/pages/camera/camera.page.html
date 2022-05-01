@@ -1,9 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>camera</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <ion-grid class="camera">
+    <ion-row>
+      <ng-container>
+        <ion-col size="12" *ngIf="listImg.length; else elseTemplate" class="camera__container-img">
+          <img *ngFor="let item of listImg" style="background-image: url('{{item}}');">
+        </ion-col>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <ion-col size="12" class="camera__container-text">
+          <p>Nenhuma imagem foi encontrada</p>
+        </ion-col>
+      </ng-template>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCamera()">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
