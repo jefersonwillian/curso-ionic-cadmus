@@ -1,0 +1,39 @@
+:host {
+  background: var(--ion-color-light);
+  margin-top: 10rem;
+  border-radius: 2rem 2rem 0rem 0rem;
+  color: var(--ion-color-black);
+
+  .modal-details {
+    text-align: center;
+
+    &__container-img {
+      margin-bottom: 1rem;
+
+      img {
+        width: 100%;
+        height: 10rem;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &__container-title {
+      margin: 1rem 0;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    &__container-description {
+      color: var(--ion-color-gray);
+      text-align: justify;
+      padding: 0 1rem;
+    }
+
+    &__container-button {
+      position: absolute;
+      bottom: 2rem;
+    }
+  }
+}
