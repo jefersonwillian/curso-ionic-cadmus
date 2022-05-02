@@ -626,14 +626,6 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.feedListGiven();
-
-    // this.storageService.set('teste', { name: 'jeferson' });
-    // const teste = this.storageService.get('teste');
-    // console.log('ngOnInit ~ teste', teste);
-
-    // setTimeout(() => {
-    //   this.storageService.clear();
-    // }, 5000);
   }
 
   public handleSearch(event) {
