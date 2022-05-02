@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "curso-ionic-cadmus",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
