@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonRefresher, ModalController } from '@ionic/angular';
+import { NetworkService } from 'src/app/@core/services/network.service';
+import { StorageService } from 'src/app/@core/services/storage.service';
 import { infiniteScrollLocal } from 'src/app/@core/utils/infinite-scroll.utils';
 import { ModalDetailsComponent } from 'src/app/@shared/components/modal-details/modal-details.component';
 
@@ -617,10 +619,21 @@ export class HomePage implements OnInit {
 
   public activeList: Array<any> = [];
 
-  constructor(public modalController: ModalController) {}
+  constructor(
+    public modalController: ModalController,
+    public storageService: StorageService
+  ) {}
 
   ngOnInit() {
     this.feedListGiven();
+
+    // this.storageService.set('teste', { name: 'jeferson' });
+    // const teste = this.storageService.get('teste');
+    // console.log('ngOnInit ~ teste', teste);
+
+    // setTimeout(() => {
+    //   this.storageService.clear();
+    // }, 5000);
   }
 
   public handleSearch(event) {
@@ -681,14 +694,4 @@ export class HomePage implements OnInit {
     }
   }
 
-  // private async openInvestmentDetailsPage(event) {
-  //   const retorno = await this.__rcModal.create({
-  //     component: ProposalDetailsPage,
-  //     cssClass: 'rc-modal-upload-imagem',
-  //     componentProps: {
-  //       dataProposal: event,
-  //       consultationDate: this.consultationDate,
-  //     },
-  //   });
-  // }
 }
