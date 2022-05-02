@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -9,12 +9,8 @@ import { MapsPageRoutingModule } from './maps-routing.module';
 import { MapsPage } from './maps.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    MapsPageRoutingModule
-  ],
-  declarations: [MapsPage]
+  imports: [CommonModule, FormsModule, IonicModule, MapsPageRoutingModule],
+  declarations: [MapsPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MapsPageModule {}

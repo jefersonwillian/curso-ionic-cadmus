@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-searchbar type="search" (click)="handleSearch($event)" (ionClear)="handleClearSeach()"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher #onRefreshPanel slot="fixed"
+    (ionRefresh)="alerta('Atenção', 'Tem certeza que deseja atualizar a lista?')">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid class="users">
+    <ion-row>
+      <ion-col size="12" *ngFor="let item of activeListUser">
+        <ion-card class="users__card">
+          <ion-row>
+            <ion-col size="6" class="users__card--img">
+              <img style="background-image: url('{{item.avatar_url}}');" />
+            </ion-col>
+            <ion-col size="6">
+              <ion-row class="ion-text-end">
+                <ion-col size="12" class="users__card--title">
+                  <ion-text>
+                    {{item.login}}
+                  </ion-text>
+                </ion-col>
+                <ion-col size="12" class="users__card--sub-title">
+                  <p>
+                    {{item.repos_url}}
+                  </p>
+                </ion-col>
+                <ion-col size="12" class="users__card--button">
+                  <a [href]="item.html_url" target="_blank" rel="noopener noreferrer">
+                    <ion-button expand="block" shape="round">
+                      Ver Perfil
+                    </ion-button>
+                  </a>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+      <ion-infinite-scroll threshold="120px" (ionInfinite)="handleSearchMoreItems($event.target)">
+        <ion-infinite-scroll-content loadingText="Buscando..."> </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-row>
+  </ion-grid>
+</ion-content>

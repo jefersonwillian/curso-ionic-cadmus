@@ -2,6 +2,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonRefresher, ModalController } from '@ionic/angular';
 import { IListHome } from 'src/app/@core/interfaces/list-home/list-home.interface';
+import { StorageService } from 'src/app/@core/services/storage.service';
 import { infiniteScrollLocal } from 'src/app/@core/utils/infinite-scroll.utils';
 import { ModalDetailsComponent } from 'src/app/@shared/components/modal-details/modal-details.component';
 
@@ -618,7 +619,10 @@ export class HomePage implements OnInit {
 
   public activeList: Array<IListHome> = [];
 
-  constructor(public modalController: ModalController) {}
+  constructor(
+    public modalController: ModalController,
+    public storageService: StorageService
+  ) {}
 
   ngOnInit() {
     this.feedListGiven();

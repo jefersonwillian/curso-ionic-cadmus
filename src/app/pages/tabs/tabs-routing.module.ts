@@ -23,6 +23,11 @@ const routes: Routes = [
           import('../maps/maps.module').then((m) => m.MapsPageModule),
       },
       {
+        path: 'users',
+        loadChildren: () =>
+          import('../users/users.module').then((m) => m.UsersPageModule),
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full',
