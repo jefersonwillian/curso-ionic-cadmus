@@ -16,6 +16,7 @@ export class MapsPage implements OnInit {
   public lat: number;
   public lng: number;
 
+  public ativaMap = false;
   constructor() {}
 
   ngOnInit() {
@@ -25,15 +26,23 @@ export class MapsPage implements OnInit {
   public printCurrentPosition() {
     Geolocation.getCurrentPosition()
       .then((res) => {
+        console.log('then ~ res', res);
         if (res.coords) {
           this.lat = res.coords.latitude;
           this.lng = res.coords.longitude;
+          this.ativaMap = true;
 
-          this.createMap();
+          setTimeout(() => {
+            this.createMap();
+          }, 5000);
         }
       })
       .catch((error) => {
-        this.createMap();
+        console.log('printCurrentPosition ~ error', error);
+        this.ativaMap = true;
+        setTimeout(() => {
+          this.createMap();
+        }, 5000);
       });
   }
 
@@ -50,5 +59,6 @@ export class MapsPage implements OnInit {
         zoom: 8,
       },
     });
+    console.log('🚀 ~ file: maps.page.ts ~ line 54 ~ MapsPage ~ createMap ~ this.newMap', this.newMap);
   }
 }
