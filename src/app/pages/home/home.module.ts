@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
-
 import { ModalDetailsModule } from 'src/app/@shared/components/modal-details/modal-details.module';
 
 @NgModule({
@@ -16,7 +15,7 @@ import { ModalDetailsModule } from 'src/app/@shared/components/modal-details/mod
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    ModalDetailsModule,
+    ModalDetailsModule
   ],
   declarations: [HomePage],
 })

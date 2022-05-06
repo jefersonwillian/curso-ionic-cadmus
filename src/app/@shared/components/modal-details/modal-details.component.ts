@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { IListHome } from 'src/app/@core/interfaces/list-home/list-home.interface';
 
 @Component({
   selector: 'app-modal-details',
@@ -7,13 +8,11 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./modal-details.component.scss'],
 })
 export class ModalDetailsComponent implements OnInit {
-  public data: any;
+  public data: IListHome;
 
   constructor(public modalController: ModalController) {}
 
-  ngOnInit() {
-    console.log(this.data);
-  }
+  ngOnInit() {}
 
   public closeModal() {
     this.modalController.dismiss();

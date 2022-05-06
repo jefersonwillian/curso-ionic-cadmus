@@ -3,8 +3,7 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-refresher #onRefreshPanel slot="fixed" (ionRefresh)="handleDoRefresh($event)">
+  <ion-refresher #onRefreshPanel slot="fixed" (ionRefresh)="handleDoRefresh()">
     <ion-refresher-content pullingIcon="chevron-down-circle-outline" refreshingSpinner="circles">
     </ion-refresher-content>
   </ion-refresher>
@@ -14,25 +13,23 @@
       <ion-col size="12" *ngFor="let item of activeList">
         <ion-card class="home__card">
           <ion-row>
-            <ion-col size="6" class="home__card--img">
-              <img
-                style="background-image: url('{{item.urlImg}}');" />
+            <ion-col size="6" class="home__card--container-img">
+              <img style="background-image: url('{{item.urlImg}}');" />
             </ion-col>
             <ion-col size="6">
               <ion-row class="ion-text-end">
-                <ion-col size="12" class="home__card--title">
+                <ion-col size="12" class="home__card--container-title">
                   <ion-text>
                     {{item.title}}
                   </ion-text>
-
                 </ion-col>
-                <ion-col size="12" class="home__card--sub-title">
+                <ion-col size="12" class="home__card--container-description">
                   <p>
                     {{item.description}}
                   </p>
                 </ion-col>
-                <ion-col size="12" class="home__card--button">
-                  <ion-button expand="block" shape="round" (click)="presentModal(item)">
+                <ion-col size="12" class="home__card--container-button">
+                  <ion-button  shape="round" (click)="handleModal(item)">
                     Ver Detalhes
                   </ion-button>
                 </ion-col>
@@ -41,9 +38,11 @@
           </ion-row>
         </ion-card>
       </ion-col>
+
       <ion-infinite-scroll threshold="120px" (ionInfinite)="handleSearchMoreItems($event.target)">
         <ion-infinite-scroll-content loadingText="Buscando..."> </ion-infinite-scroll-content>
       </ion-infinite-scroll>
+
     </ion-row>
   </ion-grid>
 </ion-content>

@@ -1,9 +1,9 @@
 /* eslint-disable no-throw-literal */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
-import { RequestMethodEnum } from '../enums/request-method.enum';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NetworkService } from './network.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { RequestMethodEnum } from '../enums/request-method.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,6 @@ export class ApiService {
     body?: any,
     requestMethod = RequestMethodEnum.POST
   ) {
-
     if (!this.networkService.isOnline()) {
       return this.networkService.messageToastNetwork();
     }
