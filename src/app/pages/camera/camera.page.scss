@@ -8,7 +8,6 @@
 
     &__container-img {
       text-align: center;
-
       img {
         width: 10rem;
         height: 10rem;
@@ -21,7 +20,7 @@
     }
 
     &__container-text {
-        font-size: 1.3rem;
+      font-size: 1.3rem;
       color: var(--ion-color-gray);
     }
   }

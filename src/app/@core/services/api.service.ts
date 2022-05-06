@@ -59,7 +59,6 @@ export class ApiService {
     } catch (error) {
       this.errorHandler(error);
     }
-
     return response;
   }
 
