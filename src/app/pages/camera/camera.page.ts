@@ -7,7 +7,6 @@ import { CameraNativeService } from 'src/app/@core/services/camera-native.servic
   styleUrls: ['./camera.page.scss'],
 })
 export class CameraPage implements OnInit {
-
   public listImg = [];
 
   constructor(public cameraNativeService: CameraNativeService) {}

@@ -1,16 +1,15 @@
-
 <ion-content>
   <ion-grid class="camera">
     <ion-row>
       <ng-container>
-          <ion-col size="12" *ngIf="listImg.length; else elseTemplate" class="camera__container-img">
-            <img *ngFor="let item of listImg" style="background-image: url('{{item}}');">
-          </ion-col>
+        <ion-col size="12" *ngIf="listImg.length; else elseTemplate" class="camera__container-img">
+          <img *ngFor="let item of listImg" style="background-image: url('{{item}}');">
+        </ion-col>
       </ng-container>
       <ng-template #elseTemplate>
-          <ion-col size="12" class="camera__container-text">
-            <p>Nenhuma imagem foi encontrada</p>
-          </ion-col>
+        <ion-col size="12" class="camera__container-text">
+          <p>Nenhuma imagem foi encontrada</p>
+        </ion-col>
       </ng-template>
     </ion-row>
   </ion-grid>

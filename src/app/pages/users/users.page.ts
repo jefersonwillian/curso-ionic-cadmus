@@ -1,13 +1,10 @@
 /* eslint-disable max-len */
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AlertController, IonRefresher, ModalController } from '@ionic/angular';
+import { AlertController, IonRefresher } from '@ionic/angular';
 import { ENDPOINTS } from 'src/app/@core/contants/api.endpoints.const';
 import { RequestMethodEnum } from 'src/app/@core/enums/request-method.enum';
 import { ApiService } from 'src/app/@core/services/api.service';
-import { NetworkService } from 'src/app/@core/services/network.service';
-import { StorageService } from 'src/app/@core/services/storage.service';
 import { infiniteScrollLocal } from 'src/app/@core/utils/infinite-scroll.utils';
-import { ModalDetailsComponent } from 'src/app/@shared/components/modal-details/modal-details.component';
 
 @Component({
   selector: 'app-users',
@@ -33,7 +30,7 @@ export class UsersPage implements OnInit {
   public async getUser() {
     try {
       const response = await this.apiService.request(
-        ENDPOINTS.User,
+        ENDPOINTS.UsersGitHub,
         {},
         RequestMethodEnum.GET
       );
@@ -99,7 +96,7 @@ export class UsersPage implements OnInit {
           text: 'Não',
           role: 'cancel',
           handler: () => {
-             this.onRefreshPanel.complete();
+            this.onRefreshPanel.complete();
           },
         },
       ],

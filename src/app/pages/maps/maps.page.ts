@@ -15,7 +15,6 @@ export class MapsPage implements OnInit {
 
   public lat: number;
   public lng: number;
-
   constructor() {}
 
   ngOnInit() {
@@ -33,11 +32,12 @@ export class MapsPage implements OnInit {
         }
       })
       .catch((error) => {
+        console.log(' error', error);
         this.createMap();
       });
   }
 
-  async createMap() {
+  public async createMap() {
     this.newMap = await GoogleMap.create({
       id: 'my-cool-map',
       element: this.mapRef.nativeElement,
@@ -47,7 +47,7 @@ export class MapsPage implements OnInit {
           lat: this.lat,
           lng: this.lng,
         },
-        zoom: 8,
+        zoom: 15,
       },
     });
   }

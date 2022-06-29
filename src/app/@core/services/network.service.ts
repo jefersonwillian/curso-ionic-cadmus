@@ -8,16 +8,13 @@ import { ToastController } from '@ionic/angular';
 export class NetworkService {
   constructor(private toastCtrl: ToastController) {}
 
-  logCurrentNetworkStatus = async () => {};
-
   public async isOnline() {
     const status = await Network.getStatus();
-
     return status.connected;
   }
 
   public listenerOnline() {
-    Network.addListener('networkStatusChange',(status) => {
+    Network.addListener('networkStatusChange', (status) => {
       if (!status.connected) {
         this.messageToastNetwork();
       }

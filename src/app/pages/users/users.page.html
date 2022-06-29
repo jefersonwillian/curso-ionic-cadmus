@@ -4,7 +4,8 @@
 
 <ion-content>
 
-  <ion-refresher #onRefreshPanel slot="fixed" (ionRefresh)="alerta('Atenção', 'Tem certeza que deseja atualizar a lista??')">
+  <ion-refresher #onRefreshPanel slot="fixed"
+    (ionRefresh)="alerta('Atenção', 'Tem certeza que deseja atualizar a lista?')">
     <ion-refresher-content pullingIcon="chevron-down-circle-outline" refreshingSpinner="circles">
     </ion-refresher-content>
   </ion-refresher>

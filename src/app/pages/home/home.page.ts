@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonRefresher, ModalController } from '@ionic/angular';
-import { NetworkService } from 'src/app/@core/services/network.service';
+import { IListHome } from 'src/app/@core/interfaces/list-home/list-home.interface';
 import { StorageService } from 'src/app/@core/services/storage.service';
 import { infiniteScrollLocal } from 'src/app/@core/utils/infinite-scroll.utils';
 import { ModalDetailsComponent } from 'src/app/@shared/components/modal-details/modal-details.component';
@@ -617,7 +617,7 @@ export class HomePage implements OnInit {
     },
   ];
 
-  public activeList: Array<any> = [];
+  public activeList: Array<IListHome> = [];
 
   constructor(
     public modalController: ModalController,
@@ -644,15 +644,26 @@ export class HomePage implements OnInit {
     }
   }
 
-  public async handleDoRefresh(event) {
-    setTimeout(() => {
-      this.activeList.sort(() => Math.random() - 10);
-      this.onRefreshPanel.complete();
-    }, 3000);
-  }
-
   public handleClearSeach() {
     this.feedListGiven();
+  }
+
+  public async handleModal(item: IListHome) {
+    const modal = await this.modalController.create({
+      component: ModalDetailsComponent,
+      cssClass: 'rc-modal-lightbox',
+      componentProps: {
+        data: item,
+      },
+    });
+    return await modal.present();
+  }
+
+  public handleDoRefresh() {
+    setTimeout(() => {
+      this.listHome.sort(() => Math.random() - 10);
+      this.onRefreshPanel.complete();
+    }, 3000);
   }
 
   public async handleSearchMoreItems(infiniteScrollTarget) {
@@ -667,23 +678,10 @@ export class HomePage implements OnInit {
     }, 5000);
   }
 
-  public async presentModal(item) {
-    const modal = await this.modalController.create({
-      component: ModalDetailsComponent,
-      cssClass: 'rc-modal-lightbox',
-      swipeToClose: true,
-      componentProps: {
-        data: item,
-      },
-    });
-    return await modal.present();
-  }
-
   private feedListGiven() {
     this.activeList = [];
     for (let index = 0; index <= 5; index++) {
       this.activeList.push(this.listHome[index]);
     }
   }
-
 }

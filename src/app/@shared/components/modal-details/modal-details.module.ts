@@ -8,5 +8,4 @@ import { IonicModule } from '@ionic/angular';
   entryComponents: [ModalDetailsComponent],
   imports: [CommonModule, IonicModule],
 })
-
 export class ModalDetailsModule {}

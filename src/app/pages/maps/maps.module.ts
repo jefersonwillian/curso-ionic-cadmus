@@ -9,13 +9,8 @@ import { MapsPageRoutingModule } from './maps-routing.module';
 import { MapsPage } from './maps.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    MapsPageRoutingModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, MapsPageRoutingModule],
   declarations: [MapsPage],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MapsPageModule {}
